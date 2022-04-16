@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punto Verde</title>
 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/estilos.css' %}">
 
 
 </head>
@@ -13,12 +15,27 @@
     
 
 
+<h1>hello</h1>
 
 
+<header>
+
+    <div id="contenido">
+   {% block contenido %}
+
+   {% end block %}
+
+    </div>
 
 
-
-
+</header>
 
 </body>
+
+
+
+<footer>
+
+</footer>
+
 </html>
