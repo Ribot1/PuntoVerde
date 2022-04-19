@@ -1,3 +1,13 @@
+body{
+  background-color: #fff4eb ;
+  
+  
+}
+.titulo{
+  text-align: center;
+  margin: 10px;
+  margin-top: 10px;
+}
 
 /* ------------------------HOME----------------------------- */
 
@@ -162,6 +172,7 @@
   border: 1px solid rgb(141, 255, 141);
   padding: 15px;
   box-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #b5ffa6 ;
 }
 
 .formu h2{
@@ -201,8 +212,8 @@
 .footer-basic {
   margin-top: 20px;
     padding:40px 0;
-    background-color: rgba(93, 218, 89, 0.61);
-    color:black;
+    background-color: #5e451b ;
+    color:#fff4eb;
   }
   
   .footer-basic ul {
@@ -241,7 +252,7 @@
     display:inline-block;
     text-align:center;
     border-radius:50%;
-    border:1px solid black;
+    border:1px solid #fff4eb;
     margin:0 8px;
     color:inherit;
     opacity:0.75;
@@ -255,7 +266,7 @@
     margin-top:15px;
     text-align:center;
     font-size:13px;
-    color:black;
+    color:#fff4eb;
     margin-bottom:0;
   }
   
