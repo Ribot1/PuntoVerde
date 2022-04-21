@@ -1,5 +1,8 @@
+from django import forms
+from django.forms.forms import Form
 from django.shortcuts import render
-
+from .models import *
+from .forms import *
 # Create your views here.
 
 
@@ -18,3 +21,7 @@ def recicla(request):
 
 def llenado(request):
    return render(request, 'app/llenado.html')
+
+def mostrar(request):
+    deposit= IngresoMaterial.objects.all()
+    return render(request,'app/ingreso.html',{'deposit':deposit})

@@ -1,0 +1,57 @@
+{%extends 'app/base.html'%}
+
+{% block contenido %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+</head>
+<body>
+    <section style="margin-bottom: 500px; margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <h2  >ingreso de maquina</h2>
+            </div>
+            <div class="container">
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th scope="col">id_material</th>
+                            <th scope="col">tipo_producto</th>
+                            <th scope="col">fecha</th>
+                            <th score="col">pesos_material</th>
+                            <th core="col">receptor_rut_receptor</th>
+                            <th core="col">contenedor_id_contenedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for de in deposit%}
+                        <tr>
+                            <td>{{de.id_material}}</th>
+                            <td>{{de.tipo_producto}}</th>
+                            <td>{{de.fecha}}</th>
+                            <td>{{de.pesos_material}}</td>
+                            <td>{{de.receptor_rut_receptor}}</td>
+                            <td>{{de.contenedor_id_contenedor}}</td>
+                            <td><a href="#"
+                                class="btn btn-primary">asignar</a></td>
+                            <td><a href="#"
+                                class="btn btn-danger">Eliminar</a></td>
+                        </tr>
+                        {%endfor%}
+                       
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+{% endblock %}

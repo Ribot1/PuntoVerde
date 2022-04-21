@@ -14,7 +14,6 @@ class Boleta(models.Model):
     forma_pago = models.CharField(max_length=100)
 
     class Meta:
-        managed = False
         db_table = 'boleta'
 
 
@@ -26,7 +25,6 @@ class Comprador(models.Model):
     correo = models.CharField(max_length=100)
 
     class Meta:
-        managed = False
         db_table = 'comprador'
 
 
@@ -34,12 +32,10 @@ class Contenedor(models.Model):
     id_contenedor = models.BigIntegerField(primary_key=True)
     tipo_contenedor = models.CharField(max_length=1)
     peso = models.BigIntegerField()
-    estado_contenedor = models.CharField(max_length=1)
+    estado_contenedor = models.CharField(max_length=10)
     precio = models.BigIntegerField()
-    contenedor_lleno_id_cont = models.ForeignKey('ContenedorLleno', models.DO_NOTHING, db_column='contenedor_lleno_id_cont')
 
     class Meta:
-        managed = False
         db_table = 'contenedor'
 
 
@@ -47,19 +43,18 @@ class ContenedorLleno(models.Model):
     id_cont = models.IntegerField(primary_key=True)
     reservado = models.FloatField()
     lleno = models.FloatField()
-    reserva_id_reserva = models.ForeignKey('Reserva', models.DO_NOTHING, db_column='reserva_id_reserva')
+    reserva_id_reserva = models.ForeignKey('Reserva', models.DO_NOTHING, db_column='reserva_id_reserva', blank=True, null=True)
+    contenedor_id_contenedor = models.ForeignKey(Contenedor, models.DO_NOTHING, db_column='contenedor_id_contenedor')
 
     class Meta:
-        managed = False
         db_table = 'contenedor_lleno'
 
 
 class DetaAsignacion(models.Model):
-    receptor_rut_receptor = models.ForeignKey('Receptor', models.DO_NOTHING, db_column='receptor_rut_receptor')
     contenedor_id_contenedor = models.ForeignKey(Contenedor, models.DO_NOTHING, db_column='contenedor_id_contenedor')
+    receptor_rut_receptor = models.ForeignKey('Receptor', models.DO_NOTHING, db_column='receptor_rut_receptor')
 
     class Meta:
-        managed = False
         db_table = 'deta_asignacion'
 
 
@@ -68,7 +63,6 @@ class DetalleConte(models.Model):
     contenedor_id_contenedor = models.ForeignKey(Contenedor, models.DO_NOTHING, db_column='contenedor_id_contenedor')
 
     class Meta:
-        managed = False
         db_table = 'detalle_conte'
 
 
@@ -83,7 +77,6 @@ class Empleado(models.Model):
     ocupacion = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
         db_table = 'empleado'
 
 
@@ -95,7 +88,6 @@ class Factura(models.Model):
     comuna = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
         db_table = 'factura'
 
 
@@ -105,7 +97,6 @@ class Informe(models.Model):
     empleado_rut_empleado = models.ForeignKey(Empleado, models.DO_NOTHING, db_column='empleado_rut_empleado')
 
     class Meta:
-        managed = False
         db_table = 'informe'
 
 
@@ -118,7 +109,6 @@ class IngresoMaterial(models.Model):
     contenedor_id_contenedor = models.ForeignKey(Contenedor, models.DO_NOTHING, db_column='contenedor_id_contenedor')
 
     class Meta:
-        managed = False
         db_table = 'ingreso_material'
 
 
@@ -128,10 +118,9 @@ class Receptor(models.Model):
     segundo_nombre = models.CharField(max_length=20)
     primer_apellido = models.CharField(max_length=20)
     segundo_apellido = models.CharField(max_length=20)
-    turno = models.CharField(max_length=45)
+    turno = models.DateTimeField()
 
     class Meta:
-        managed = False
         db_table = 'receptor'
 
 
@@ -143,7 +132,6 @@ class Reserva(models.Model):
     comprador_id_comprador = models.ForeignKey(Comprador, models.DO_NOTHING, db_column='comprador_id_comprador')
 
     class Meta:
-        managed = False
         db_table = 'reserva'
 
 
@@ -157,7 +145,6 @@ class Retiro(models.Model):
     contacto = models.BigIntegerField()
 
     class Meta:
-        managed = False
         db_table = 'retiro'
 
 
@@ -171,5 +158,4 @@ class Venta(models.Model):
     emitido_en = models.CharField(max_length=30)
 
     class Meta:
-        managed = False
         db_table = 'venta'
