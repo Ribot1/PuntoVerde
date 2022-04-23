@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<br>
+<td></td>
+<h2>Registro Usuarios</h2>
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <label for="">Username</label>
+    <input type="text" name="username">
+    <br>
+    <label for="">Nombre</label>
+    <input type="text" name="nombre">
+    <br>
+    <label for="">Apellido</label>
+    <input type="text" name="apellido">
+    <br>
+    <label for="">Correo</label>
+    <input type="text" name="correo">
+    <br>
+    <label for="">Password</label>
+    <input type="text" name="clave">
+    <br>
+    <input type="submit" value="Guardar">
+
+</form>
+
+{% endblock %}
