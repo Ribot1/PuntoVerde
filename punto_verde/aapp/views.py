@@ -1,15 +1,15 @@
+from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from django.forms.forms import Form
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
+from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.models import User
 from django.db import connection
-from .forms import Conchetumare
-
 # Create your views here.
 
 
