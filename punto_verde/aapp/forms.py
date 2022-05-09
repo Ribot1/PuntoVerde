@@ -1,41 +1,46 @@
+from dataclasses import fields
+from pyexpat import model
 from django import forms
-from django.forms import ModelForm,widgets 
-from .models import IngresoMaterial
+from .models import *
 
-class IngresarForm(ModelForm):
+
+class Conchetumare(forms.ModelForm):
 
     class Meta:
         model = IngresoMaterial
-        fields = ['id_material','tipo_producto','fecha','pesos_material','receptor_rut_receptor','contenedor_id_contenedor']
+        fields = "__all__"
+        # fields = ["id_material","tipo_producto","fecha","peso_material"]
 
+    
+class ingreform(forms.ModelForm):
+    class Meta:
+        model = IngresoMaterial
+        fields = '__all__' 
         labels={
-            'id_material':"id_Material:",
-            'tipo_producto': "Tipo:",
-            'fecha' : "Fecha:",
-            'pesos_material': "Peso:",
-            'receptor_rut_receptor': "Receptor",
-            'contenedor_id_contenedor' : "Contenedor:"
+            'id_material': 'id_material:',
+            'tipo_producto': 'tipo_producto:', 
+            'fecha': 'fecha:',
+            'pesos_material': 'pesos_material:',
+            'llen_conts_id_llenado': 'contenedores',
         }
-
-        widgets={
+        Widgets={
             'id_material':forms.NumberInput(
                 attrs={
                     'class': 'form-titulo',
                     'id': 'material', 
                     'name': 'material',
-                    'placeholder': 'ingreso_material'
+                    'placeholder': 'id'
                 }
             ),
-            
             'tipo_producto':forms.TextInput(
                 attrs={
                     'class': 'form-titulo',
-                    'id': 'producto', 
-                    'name': 'producto',
-                    'placeholder': 'tipo'
+                    'id': 'tipo', 
+                    'name': 'tipo',
+                    'placeholder': 'ingresar_rut'
                 }
             ),
-            'fecha':forms.DateInput(
+            'fecha':forms.DateTimeInput(
                 attrs={
                     'class': 'form-titulo',
                     'id': 'fecha', 
@@ -51,21 +56,84 @@ class IngresarForm(ModelForm):
                     'placeholder': 'peso'
                 }
             ),
-            'receptor_rut_receptor':forms.TextInput(
+            'llen_conts_id_llenado':forms.Select(
                 attrs={
-                    'class': 'form-titulo',
-                    'id': 'rut', 
-                    'name': 'rut',
-                    'placeholder': 'rut'
-                }
-            ),
-            'contenedor_id_contenedor':forms.NumberInput(
-                attrs={
-                    'class': 'form-titulo',
+                    'class': 'form-control',
                     'id': 'contenedor', 
                     'name': 'contenedor',
-                    
+                    'placeholder': 'contenedores'
                 }
-            ),
-            
-        }
+            ),}
+
+class llenandoForm(forms.ModelForm):
+        class Meta:
+            model = LlenadoContenedores
+            fields = '__all__'
+            labels={
+                'id_llenado': 'id_material:',
+                'tipo_contenedor': 'tipo_producto:', 
+                'peso': 'peso:',
+                'estado_contenedor': 'estado:',
+                'precio': 'precio',
+                'invt_conts_id_contenedor': 'inventario',
+                'ingreso_material_id_material': 'material',
+            }
+            Widgets={
+                'id_llenado':forms.NumberInput(
+                    attrs={
+                        'class': 'form-control',
+                        'id': 'id_llenado', 
+                        'name': 'id_llenado',
+                        'placeholder': 'id'
+                    }
+                ),
+                'tipo_contenedor':forms.TextInput(
+                    attrs={
+                        'class': 'form-control',
+                        'id': 'tipo', 
+                        'name': 'tipo',
+                        'placeholder': 'tipo_contenedor'
+                    }
+                ),
+                'peso':forms.NumberInput(
+                    attrs={
+                        'class': 'form-control',
+                        'id': 'peso', 
+                        'name': 'peso',
+                        'placeholder': 'peso'
+                    }
+                ),
+                'estado_contenedor':forms.TextInput(
+                    attrs={
+                        'class': 'form-control',
+                        'id': 'estado', 
+                        'name': 'estado',
+                        'placeholder': 'estado'
+                    }
+                ),
+                'precio':forms.NumberInput(
+                    attrs={
+                        'class': 'form-control',
+                        'id': 'precio', 
+                        'name': 'precio',
+                        'placeholder': 'precio'
+                    }
+                ),
+                'invt_conts_id_contenedor':forms.Select(
+                   attrs={
+                       'class': 'form-control',
+                        'id': 'contenedor', 
+                        'name': 'contenedor',
+                        'placeholder': 'contenedores'
+                   }     
+                ),
+                'ingreso_material_id_material':forms.Select(
+                    attrs={
+                       'class': 'form-control',
+                        'id': 'ingreso', 
+                        'name': 'ingreso',
+                        'placeholder': 'ingreso'
+                   }     
+                ),
+
+                }

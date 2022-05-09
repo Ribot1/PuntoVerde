@@ -5,9 +5,65 @@
 
 
 
+{% load static %}
+<div class="recicla">
+
+    <h1>Como reciclar </h1>
+
+    <div class="mitad1">       
+
+        <div class="text1">
+            <h6>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas eligendi expedita harum dolorum! Consectetur iusto delectus a dolorum rem perspiciatis cum quis quam! Quaerat nostrum tenetur quas, accusantium dolor reiciendis.</h6>
+
+        </div>
+
+        <div class="img1" >
+            <img src="{% static 'app/img/chica1.jpg' %}" alt="">
+
+        </div>
+
+
+    </div>
 
 
 
-<h1> SE RECICLA RECICLANDO</h1>
+
+ <!-- --------------------------------------- -->
+
+    <div  class="mitad2">  
+
+        <div class="img2">
+
+            <img src="{% static 'app/img/chica2.jpg' %}" alt="">
+        </div>
+
+        <div class="text2" >
+
+            <h6>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum ut sit, impedit nemo asperiores atque aspernatur. Culpa ea totam vitae debitis similique ad iste mollitia cum. Maiores eius sunt cupiditate.</h6>
+        </div>
+
+    </div>
+
+
+
+
+  
+</div>
+
+
+
+<form action="" class="formulario_ingresar" method="post">  
+    
+    {% csrf_token %}
+
+
+    {{ form }}
+
+    
+
+    <button type="submit" id="btnEnviar" class="buttong" > okey</button>
+   </form>
+{{mensaje}}
+
 
 {% endblock %}

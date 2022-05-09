@@ -1,0 +1,69 @@
+{%extends 'app/base.html'%}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="es" class="htmla">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% load static %}
+    <title>Document</title>
+</head>
+<body class="bodya">
+    <div class="formulario" > 
+        <form class="formu" method="POST" name="llenando" id="llenando" action="#">
+            {% csrf_token %}
+          <h2> Registro</h2>
+            <div class="row">
+                <div class="col-md-6">
+                        <div class="form-group"> 
+                            {{llenando.id_llenado.label}}
+                            {{llenando.id_llenado}} 
+                        </div>  
+                    
+                        <div class="form-group"> 
+                            {{llenando.tipo_contenedor.label}}
+                            {{llenando.tipo_contenedor}} 
+                        </div>    
+                    
+                        <div class="form-group"> 
+                            {{llenando.peso.label}}
+                            {{llenando.peso}} 
+                        </div>
+                    
+                        <div class="form-group"> 
+                            {{llenando.estado_contenedor.label}}
+                            {{llenando.estado_contenedor}} 
+                        </div>  
+                    
+                        <div class="form-group"> 
+                            {{llenando.precio.label}}
+                            {{llenando.precio}} 
+                        </div>                          
+                                                
+                        <div class="form-group"> 
+                            {{llenando.invt_conts_id_contenedor.label}}
+                            {{llenando.invt_conts_id_contenedor}} 
+                        </div>    
+                    
+                        <div class="form-group"> 
+                            {{llenando.ingreso_material_id_material.label}}
+                            {{llenando.ingreso_material_id_material}} 
+                        </div>
+                </div>     
+            </div>
+          <input type="submit"  class="botones btn btn-success" value="enviar" > 
+          
+          {{mensaje}}
+      
+      
+        </form>
+      </div>
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -7,7 +7,51 @@
 
 
 
+<div class="recicla">
+
 
 <h1>Estado container</h1>
 
+<div  class="card-body">  
+<h4>  Contenedores </h4>
+<table  class="table" >
+
+    <thead>
+        <tr>
+        
+            <th>id contenedor  </th>
+            <th> tipo contenedor </th>
+            <th> peso</th>
+            <th> estado contenedor </th>
+            <th> precio </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for Contenedor in contenedor %}
+        <tr>
+            <td> {{ Contenedor.id_contenedor  }}    </td>
+            <td> {{ Contenedor.tipo_contenedor  }} </td>
+            <td> {{ Contenedor.peso  }} </td>
+            <td> {{ Contenedor.estado_contenedor  }} </td>
+            <td> {{ Contenedor.precio  }} </td>
+            <td> <a name="" id="" class="btn btn-success" href="#"> Reservar  </a>  <button type="button" class="btn btn-danger">Eliminar</button> </td>
+        </tr>
+        {% endfor %}
+
+
+    </tbody>
+
+
+</table>
+
+</div>
+
+
+
+
+
+
+</div>
 {% endblock %}

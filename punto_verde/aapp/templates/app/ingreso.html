@@ -2,56 +2,88 @@
 
 {% block contenido %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <title>Document</title>
-</head>
-<body>
-    <section style="margin-bottom: 500px; margin-top: 50px;">
-        <div class="container">
-            <div class="row">
-                <h2  >ingreso de maquina</h2>
+
+{% load static %}
+
+
+
+
+<div class="recicla">
+
+
+
+    <div class="tabs">
+        <div class="tab-container">
+          <div id="tab3" class="tab"> 
+            <a href="#tab3">Pestaña 3</a>
+            <div class="tab-content">
+              <h2>  Contenedores </h2>
+<!-- -----------------------------MOSTRAR CONTAINERS ------------------------------------- -->
+
+<div  class="card-body">  
+ 
+  <table  class="table" >
+      <thead>
+          <tr>
+              <th>id contenedor  </th>
+              <th> tipo contenedor </th>
+              <th> Fecha </th>
+              <th> Peso Material </th>
+              
+              <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for IngresoMaterial in ingresos %}
+          <tr>
+              <td> {{ IngresoMaterial.id_material  }}    </td>
+              <td> {{ IngresoMaterial.tipo_producto  }} </td>
+              <td> {{ IngresoMaterial.fecha  }} </td>
+              <td> {{ IngresoMaterial.pesos_material  }} </td>
+              <td> <a name="" id="" class="btn btn-success" href="#"> Editar  </a>  <button type="button" class="btn btn-danger">Eliminar</button> </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  </div>
+  
+
+<!-- ------------------------------------------------------------- -->
+
+
             </div>
-            <div class="container">
-                <table class="table" >
-                    <thead>
-                        <tr>
-                            <th scope="col">id_material</th>
-                            <th scope="col">tipo_producto</th>
-                            <th scope="col">fecha</th>
-                            <th score="col">pesos_material</th>
-                            <th core="col">receptor_rut_receptor</th>
-                            <th core="col">contenedor_id_contenedor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {%for de in deposit%}
-                        <tr>
-                            <td>{{de.id_material}}</th>
-                            <td>{{de.tipo_producto}}</th>
-                            <td>{{de.fecha}}</th>
-                            <td>{{de.pesos_material}}</td>
-                            <td>{{de.receptor_rut_receptor}}</td>
-                            <td>{{de.contenedor_id_contenedor}}</td>
-                            <td><a href="#"
-                                class="btn btn-primary">asignar</a></td>
-                            <td><a href="#"
-                                class="btn btn-danger">Eliminar</a></td>
-                        </tr>
-                        {%endfor%}
-                       
-                    </tbody>
-                </table>
-                
+          </div>
+          <div id="tab2" class="tab">
+            <a href="#tab2">Pestaña 2</a>
+            <div class="tab-content">
+              <h2>Titulo 2</h2>
+           
             </div>
+          </div> 
+          <div id="tab1" class="tab">
+            <a href="#tab1">Pestaña 1</a>
+            <div class="tab-content">
+
+              <h2>Titulo 1</h2>
+  
+ 
+              <form action="">  
+    
+
+   
+
+
+                {{ form }}
+            
+            
+                <button type="submit" id="btnEnviar" class="buttong" > okey</button>
+               </form>
+             
+            </div>  
+          </div> 
         </div>
-    </section>
-</body>
-</html>
+      </div>
+      
+</div>
 
 {% endblock %}
